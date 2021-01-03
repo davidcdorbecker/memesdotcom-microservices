@@ -6,4 +6,7 @@ const (
 	MySQLPassword   = "mysql.password"
 	MySQLHost       = "mysql.host"
 	MySQLSchema     = "mysql.schema"
+
+	StatusActive   = "active"
+	StatusInactive = "inactive"
 )

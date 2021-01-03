@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	log "github.com/sirupsen/logrus"
 	"memesdotcom-users/domain"
+	"memesdotcom-users/utils/constants"
 	_errors "memesdotcom-users/utils/error"
 )
 
@@ -11,12 +12,14 @@ type dbRepository struct {
 	mysqlClient *sql.DB
 }
 
-type DbRepository interface{
+type DbRepository interface {
 	CreateClient(user domain.User) _errors.RestError
+	FindByEmailAndPassword(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError)
 }
 
 const (
-	queryRegisterUser = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?);"
+	queryRegisterUser           = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?);"
+	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created FROM users WHERE email=? AND password=? AND status=?;"
 )
 
 func NewDbRepository(mysqlClient *sql.DB) DbRepository {
@@ -45,4 +48,22 @@ func (db *dbRepository) CreateClient(user domain.User) _errors.RestError {
 	user.ID = userId
 
 	return nil
+}
+
+func (db *dbRepository) FindByEmailAndPassword(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
+	stmt, err := db.mysqlClient.Prepare(queryFindByEmailAndPassword)
+	if err != nil {
+		log.Error("error when trying to prepare search user statement", err)
+		return nil, _errors.NewInternalServerError("error when trying to search user")
+	}
+	defer stmt.Close()
+
+	var user domain.User
+	result := stmt.QueryRow(userCredentials.Email, userCredentials.Password, constants.StatusActive)
+	if err := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated); err != nil {
+		log.Error("error when trying to search user", err)
+		return nil, _errors.NewInternalServerError("error when trying to search user")
+	}
+
+	return &user, nil
 }

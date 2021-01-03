@@ -3,6 +3,7 @@ package services
 import (
 	"memesdotcom-users/domain"
 	"memesdotcom-users/infrastructure/repository/db"
+	"memesdotcom-users/utils/constants"
 	"memesdotcom-users/utils/date_utils"
 	_errors "memesdotcom-users/utils/error"
 	"memesdotcom-users/utils/helpers"
@@ -14,6 +15,7 @@ type service struct {
 
 type Service interface {
 	CreateUser(user domain.User) _errors.RestError
+	LoginUser(user *domain.UserCredentials) (*domain.User, _errors.RestError)
 }
 
 func NewService(dbRepo db.DbRepository) Service {
@@ -22,7 +24,7 @@ func NewService(dbRepo db.DbRepository) Service {
 
 func (s *service) CreateUser(user domain.User) _errors.RestError {
 	//formating user
-	user.Status = "active"
+	user.Status = constants.StatusActive
 	user.DateCreated = date_utils.GetNowDbFormat()
 	user.Password = helpers.Encrypt(user.Password)
 
@@ -31,4 +33,15 @@ func (s *service) CreateUser(user domain.User) _errors.RestError {
 	}
 
 	return nil
+}
+
+func (s *service) LoginUser(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
+	userCredentials.Password = helpers.Encrypt(userCredentials.Password)
+
+	if user, err := s.db.FindByEmailAndPassword(userCredentials); err != nil {
+		return nil, err
+	} else {
+		return user, nil
+	}
+
 }
