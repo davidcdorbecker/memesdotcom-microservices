@@ -1,5 +1,5 @@
 mysql:
-	docker run --name mysql -e MYSQL_ROOT_PASSWORD=pass -d --rm -p 3306:3306 mysql
+	docker run --name mysql -v mysqldata:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=pass -d --rm -p 3306:3306 mysql
 createdb:
 	docker exec -i mysql mysql -uroot -ppass <<< "create database users_db;"
 dropdb:
