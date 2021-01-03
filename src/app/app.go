@@ -21,10 +21,10 @@ func StartApp() {
 	viper.AddConfigPath("./src")
 	viper.AutomaticEnv()
 
-	err := viper.ReadInConfig()
-	if err != nil {
+	if err := viper.ReadInConfig(); err != nil {
 		panic("config file not found")
 	}
+
 	log.Printf("config keys: %s\n", viper.AllKeys())
 
 	//getting mysql config
