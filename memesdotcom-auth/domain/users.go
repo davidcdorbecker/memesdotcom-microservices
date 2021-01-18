@@ -3,7 +3,6 @@ package domain
 type User struct {
 	ID          int64  `json:"id"`
 	Email       string `json:"email"`
-	Password    string `json:"password,omitempty"`
 	FirstName   string `json:"first_name"`
 	LastName    string `json:"last_name"`
 	Username    string `json:"username"`
@@ -11,7 +10,8 @@ type User struct {
 	DateCreated string `json:"date_created"`
 }
 
-type UserCredentials struct {
+type UserLoginByCredentials struct {
+	Username string `json:"username"`
 	Email    string `json:"email"`
-	Password string `json:"password,omitempty"`
+	Password string `json:"password"`
 }

@@ -16,12 +16,13 @@ type dbRepository struct {
 
 type DbRepository interface {
 	CreateClient(user domain.User) _errors.RestError
-	FindByEmailAndPassword(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError)
+	FindByCredentials(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError)
 }
 
 const (
-	queryRegisterUser           = "INSERT INTO users(first_name, last_name, email, username, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?, ?);"
-	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, username, date_created FROM users WHERE email=? AND password=? AND status=?;"
+	queryRegisterUser              = "INSERT INTO users(first_name, last_name, email, username, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?, ?);"
+	queryFindByEmailAndPassword    = "SELECT id, first_name, last_name, email, username, date_created FROM users WHERE email=? AND password=? AND status=?;"
+	queryFindByUsernameAndPassword = "SELECT id, first_name, last_name, email, username, date_created FROM users WHERE username=? AND password=? AND status=?;"
 )
 
 func NewDbRepository(mysqlClient *sql.DB) DbRepository {
@@ -52,8 +53,20 @@ func (db *dbRepository) CreateClient(user domain.User) _errors.RestError {
 	return nil
 }
 
-func (db *dbRepository) FindByEmailAndPassword(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
-	stmt, err := db.mysqlClient.Prepare(queryFindByEmailAndPassword)
+func (db *dbRepository) FindByCredentials(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
+
+	var stmt *sql.Stmt
+	var err error
+	var entry string
+
+	if userCredentials.Email != "" {
+		stmt, err = db.mysqlClient.Prepare(queryFindByEmailAndPassword)
+		entry = userCredentials.Email
+	} else {
+		stmt, err = db.mysqlClient.Prepare(queryFindByUsernameAndPassword)
+		entry = userCredentials.Username
+	}
+
 	if err != nil {
 		log.Error("error when trying to prepare search user statement", err)
 		return nil, _errors.NewInternalServerError("error when trying to search user")
@@ -61,7 +74,8 @@ func (db *dbRepository) FindByEmailAndPassword(userCredentials *domain.UserCrede
 	defer stmt.Close()
 
 	var user domain.User
-	result := stmt.QueryRow(userCredentials.Email, userCredentials.Password, constants.StatusActive)
+
+	result := stmt.QueryRow(entry, userCredentials.Password, constants.StatusActive)
 	if err := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.Username, &user.DateCreated); err != nil {
 		log.Error("error when trying to search user", err)
 		return nil, _errors.NewInternalServerError("error when trying to search user")

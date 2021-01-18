@@ -16,7 +16,7 @@ func CreateRestRouter(authHandler handlers.AuthHandler) *fiber.App {
 		auth.Get("/health", func(c *fiber.Ctx) error {
 			return c.SendString("ok")
 		})
-		auth.Post("/login", authHandler.Login)
+		auth.Post("/login", authHandler.CreateAccessToken)
 	}
 
 	return app

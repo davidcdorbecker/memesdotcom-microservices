@@ -14,14 +14,14 @@ type usersAPI struct {
 }
 
 type UsersAPI interface {
-	GetUser(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError)
+	GetUserByCredentials(userCredentials *domain.UserLoginByCredentials) (*domain.User, _errors.RestError)
 }
 
 func NewUsersAPI(restClient *resty.Client) UsersAPI {
 	return &usersAPI{restClient}
 }
 
-func (uAPI *usersAPI) GetUser(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
+func (uAPI *usersAPI) GetUserByCredentials(userCredentials *domain.UserLoginByCredentials) (*domain.User, _errors.RestError) {
 	var user domain.User
 
 	req, err := json.Marshal(&userCredentials)

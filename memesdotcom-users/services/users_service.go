@@ -39,7 +39,7 @@ func (s *service) CreateUser(user domain.User) _errors.RestError {
 func (s *service) VerifyUserCredentials(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
 	userCredentials.Password = helpers.Encrypt(userCredentials.Password)
 
-	if user, err := s.db.FindByEmailAndPassword(userCredentials); err != nil {
+	if user, err := s.db.FindByCredentials(userCredentials); err != nil {
 		return nil, err
 	} else {
 		return user, nil

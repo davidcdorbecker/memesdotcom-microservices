@@ -54,6 +54,7 @@ func (uh *usersHandler) CreateUser(c *fiber.Ctx) error {
 
 func (uh *usersHandler) VerifyUser(c *fiber.Ctx) error {
 	var userCrentials domain.UserCredentials
+
 	if err := c.BodyParser(&userCrentials); err != nil {
 		return c.Status(http.StatusBadRequest).JSON(_errors.NewBadRequestError("error in request body"))
 	}

@@ -1,3 +1,11 @@
 
 app:
   port: ":8086"
+accessToken:
+#  minutes
+  expirationTime: 5
+  secret: 5ebe2294ecd0e0f08eab7690d2a6ee69
+refreshToken:
+#  hours
+  expirationTime: 24*7
+  secret: e54cfb3714f76cedd4b27889e1f6a174
