@@ -5,7 +5,8 @@ import (
 
 	"memesdotcom-users/domain"
 	"memesdotcom-users/services"
-	_errors "memesdotcom-users/utils/error"
+
+	_errors "github.com/davidcdorbecker/memesdotcom-microservices/memesdotcom-utils/error"
 
 	"github.com/gofiber/fiber/v2"
 )

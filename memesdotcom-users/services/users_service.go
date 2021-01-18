@@ -5,8 +5,9 @@ import (
 	"memesdotcom-users/infrastructure/repository/db"
 	"memesdotcom-users/utils/constants"
 	"memesdotcom-users/utils/date_utils"
-	_errors "memesdotcom-users/utils/error"
 	"memesdotcom-users/utils/helpers"
+
+	_errors "github.com/davidcdorbecker/memesdotcom-microservices/memesdotcom-utils/error"
 )
 
 type service struct {

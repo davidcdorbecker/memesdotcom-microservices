@@ -2,10 +2,12 @@ package db
 
 import (
 	"database/sql"
-	log "github.com/sirupsen/logrus"
+
 	"memesdotcom-users/domain"
 	"memesdotcom-users/utils/constants"
-	_errors "memesdotcom-users/utils/error"
+
+	_errors "github.com/davidcdorbecker/memesdotcom-microservices/memesdotcom-utils/error"
+	log "github.com/sirupsen/logrus"
 )
 
 type dbRepository struct {
