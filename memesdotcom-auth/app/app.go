@@ -1,13 +1,16 @@
 package app
 
 import (
+	"context"
 	"github.com/go-resty/resty/v2"
 	"memesdotcom-auth/handlers"
+	redis2 "memesdotcom-auth/infrastructure/repository/redis"
 	"memesdotcom-auth/infrastructure/repository/users_api"
 	"memesdotcom-auth/infrastructure/router"
 	"memesdotcom-auth/services"
 	"memesdotcom-auth/utils/constants"
 
+	"github.com/go-redis/redis/v8"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -26,7 +29,13 @@ func StartApp() {
 
 	log.Printf("config keys: %s\n", viper.AllKeys())
 
-	handler := handlers.NewAuthHandler(services.NewAuthService(users_api.NewUsersAPI(resty.New())))
+	redisClient := redis.NewClient(&redis.Options{
+		Addr:     "localhost:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+
+	handler := handlers.NewAuthHandler(services.NewAuthService(users_api.NewUsersAPI(resty.New()), redis2.NewRedisRepo(redisClient, context.Background())))
 
 	//getting API
 	app := router.CreateRestRouter(handler)

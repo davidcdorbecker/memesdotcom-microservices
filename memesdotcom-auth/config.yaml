@@ -7,5 +7,6 @@ accessToken:
   secret: 5ebe2294ecd0e0f08eab7690d2a6ee69
 refreshToken:
 #  hours
-  expirationTime: 24*7
+#  24 * 7 = 168
+  expirationTime: 168
   secret: e54cfb3714f76cedd4b27889e1f6a174

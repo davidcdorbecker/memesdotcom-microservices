@@ -32,8 +32,8 @@ type AccessToken struct {
 }
 
 func (at *AccessToken) Generate() _errors.RestError {
-	accessTokenExpirationTime := time.Now().Add(time.Minute * viper.GetDuration(constants.AccessTokenExpirationTime)).Unix()
-	refreshTokenExpirationTime := time.Now().Add(time.Hour * viper.GetDuration(constants.RefreshTokenExpirationTime)).Unix()
+	accessTokenExpirationTime := time.Now().Add(time.Minute * viper.GetDuration(constants.AccessTokenExpirationTime)).UnixNano()
+	refreshTokenExpirationTime := time.Now().Add(time.Hour * viper.GetDuration(constants.RefreshTokenExpirationTime)).UnixNano()
 
 	accessToken := jwt.New(jwt.SigningMethodHS256)
 	accessTokenClaims := accessToken.Claims.(jwt.MapClaims)
