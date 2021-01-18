@@ -23,12 +23,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0987d249-97b3-4c2f-bbf4-f4f0115788bb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/app/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/utils/constants/constants.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-users/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-users/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-users/infrastructure/repository/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/infrastructure/repository/db/db.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-users/services/users_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/services/users_service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/infrastructure/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/infrastructure/router/router.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,12 +63,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/memesdotcom-auth" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/memesdotcom-auth" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/handlers" />
     </key>
@@ -77,13 +81,21 @@
       <recent name="$PROJECT_DIR$/src/infrastructure/router" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build memesdotcom-users">
+  <component name="RunManager" selected="Go Build.go build main.go (1)">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="memesdotcom-microservices" />
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="FILE" />
       <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="memesdotcom-microservices" />
+      <working_directory value="$PROJECT_DIR$/memesdotcom-auth" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/memesdotcom-auth/main.go" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -114,12 +126,6 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="createdb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/src/Makefile" target="createdb" workingDirectory="" arguments="">
-        <envs />
-      </makefile>
-      <method v="2" />
-    </configuration>
     <configuration name="mysql" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/src/Makefile" target="mysql" workingDirectory="" arguments="">
         <envs />
@@ -134,11 +140,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build memesdotcom-users" />
         <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Makefile.mysql" />
         <item itemvalue="Makefile.restore" />
-        <item itemvalue="Makefile.createdb" />
       </list>
     </recent_temporary>
   </component>
@@ -242,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610981732180</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="users repo updated">
+      <created>1610982271627</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1610982271627</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,12 +285,17 @@
     <MESSAGE value="utils rebrand" />
     <MESSAGE value="gomod config for utils" />
     <MESSAGE value="gomod updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="gomod updated" />
+    <MESSAGE value="users repo updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="users repo updated" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
+    <state x="2320" y="-41" key="#Plugins" timestamp="1610988647535">
+      <screen x="1440" y="-409" width="2560" height="1440" />
+    </state>
+    <state x="2320" y="-41" key="#Plugins/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988647535" />
     <state x="2131" y="551" key="#SQL_Dialects" timestamp="1609707573720">
       <screen x="1440" y="0" width="2560" height="1440" />
     </state>
@@ -291,41 +309,45 @@
       <screen x="1440" y="-417" width="2560" height="1440" />
     </state>
     <state x="2566" y="211" key="Github.ShareDialog/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298787942" />
-    <state width="2518" height="415" key="GridCell.Tab.0.bottom" timestamp="1610982092395">
+    <state width="2518" height="415" key="GridCell.Tab.0.bottom" timestamp="1610988261695">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757026" />
-    <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610982092395" />
+    <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103097" />
     <state width="2518" height="402" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752609" />
     <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609454854375" />
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806633" />
+    <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261695" />
     <state width="2518" height="514" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007081" />
-    <state width="2518" height="415" key="GridCell.Tab.0.center" timestamp="1610982092392">
+    <state width="2518" height="415" key="GridCell.Tab.0.center" timestamp="1610988261691">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="415" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610982092392" />
+    <state width="2518" height="415" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103093" />
     <state width="2518" height="402" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752602" />
     <state width="1398" height="240" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806631" />
+    <state width="2518" height="415" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261691" />
     <state width="2518" height="514" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007076" />
-    <state width="2518" height="415" key="GridCell.Tab.0.left" timestamp="1610982092391">
+    <state width="2518" height="415" key="GridCell.Tab.0.left" timestamp="1610988261689">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757023" />
-    <state width="2518" height="415" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610982092391" />
+    <state width="2518" height="415" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103092" />
     <state width="2518" height="402" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752598" />
     <state width="1398" height="240" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609454854373" />
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806630" />
+    <state width="2518" height="415" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261689" />
     <state width="2518" height="514" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007074" />
-    <state width="2518" height="415" key="GridCell.Tab.0.right" timestamp="1610982092393">
+    <state width="2518" height="415" key="GridCell.Tab.0.right" timestamp="1610988261693">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="415" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610982092393" />
+    <state width="2518" height="415" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103096" />
     <state width="2518" height="402" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752607" />
     <state width="1398" height="240" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806632" />
+    <state width="2518" height="415" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261693" />
     <state width="2518" height="514" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007080" />
     <state width="2518" height="514" key="GridCell.Tab.1.bottom" timestamp="1609345007091">
       <screen x="1440" y="-417" width="2560" height="1440" />
@@ -364,12 +386,13 @@
       <screen x="1440" y="0" width="2560" height="1440" />
     </state>
     <state x="2617" y="614" width="318" height="249" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609699813498" />
-    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1610981744065">
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1610988604085">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2386" y="331" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715882647" />
     <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610981744065" />
     <state x="2385" y="-86" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298775189" />
     <state x="532" y="207" width="670" height="423" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1609454544747" />
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988604085" />
   </component>
 </project>

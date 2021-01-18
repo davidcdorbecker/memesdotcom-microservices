@@ -1,23 +1,21 @@
 package router
 
 import (
-	"memesdotcom-users/handlers"
+	"memesdotcom-auth/handlers"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-func CreateRestRouter(usersHandler handlers.UsersHandler) *fiber.App {
+func CreateRestRouter(usersHandler handlers.AuthHandler) *fiber.App {
 	app := fiber.New()
 
-	users := app.Group("/users")
+	users := app.Group("/auth")
 	users.Use(logger.New())
 	{
 		users.Get("/health", func(c *fiber.Ctx) error {
 			return c.SendString("ok")
 		})
-		users.Post("/register", usersHandler.CreateUser)
-		users.Post("/login", usersHandler.LoginUser)
 	}
 
 	return app

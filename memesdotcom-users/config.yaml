@@ -3,6 +3,6 @@ app:
   port: ":8085"
 mysql:
   username: "root"
-  password: "pass"
+  password: "admin2684"
   host: "localhost:3306"
   schema: "users_db"
