@@ -33,15 +33,15 @@ type AccessToken struct {
 }
 
 func (at *AccessToken) Generate() _errors.RestError {
+	at.UpdateExpirationTime()
 	accessTokenExpirationTime := time.Now().Add(time.Minute * viper.GetDuration(constants.AccessTokenExpirationTime)).UnixNano()
-	refreshTokenExpirationTime := time.Now().Add(time.Hour * viper.GetDuration(constants.RefreshTokenExpirationTime)).UnixNano()
 
 	refreshToken := jwt.New(jwt.SigningMethodHS256)
 	refreshTokenClaims := refreshToken.Claims.(jwt.MapClaims)
 	uid := strconv.FormatInt(at.UserID, 10)
 	refreshTokenClaims["userID"] = uid
 	refreshTokenClaims["clientID"] = at.ClientID
-	exp := strconv.FormatInt(refreshTokenExpirationTime, 10)
+	exp := strconv.FormatInt(at.RefreshTokenExpirationTime, 10)
 	refreshTokenClaims["exp"] = exp
 	rToken, rtErr := refreshToken.SignedString([]byte(viper.GetString(constants.RefreshTokenSecret)))
 	if rtErr != nil {
@@ -64,7 +64,6 @@ func (at *AccessToken) Generate() _errors.RestError {
 	at.AccessToken = aToken
 	at.AccessTokenExpirationTime = accessTokenExpirationTime
 	at.RefreshToken = rToken
-	at.RefreshTokenExpirationTime = refreshTokenExpirationTime
 
 	return nil
 }
@@ -75,6 +74,10 @@ func (at *AccessToken) IsExpired() bool {
 
 func (at *AccessToken) IsRefreshTokenExpired() bool {
 	return at.RefreshTokenExpirationTime-time.Now().UnixNano() < 0
+}
+
+func (at *AccessToken) UpdateExpirationTime() {
+	at.RefreshTokenExpirationTime = time.Now().Add(time.Hour * viper.GetDuration(constants.RefreshTokenExpirationTime)).UnixNano()
 }
 
 func (at *AccessToken) GetExpiration() time.Duration {

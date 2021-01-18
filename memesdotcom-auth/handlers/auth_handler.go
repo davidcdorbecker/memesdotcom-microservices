@@ -85,11 +85,11 @@ func (ah *authHandler) ValidateAccessToken(c *fiber.Ctx) error {
 
 	accessToken.AccessToken = reqToken
 
-	at, err := ah.authService.ValidateAndGenerateAccessToken(&accessToken)
+	err := ah.authService.ValidateAccessToken(&accessToken)
 	if err != nil {
 		return c.Status(err.Code()).JSON(err)
 	}
-	return c.Status(http.StatusOK).JSON(at)
+	return c.Status(http.StatusOK).JSON("")
 }
 
 func getLoginMethod(accessTokenRequest *domain.AccessTokenRequest) string {

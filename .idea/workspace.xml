@@ -24,10 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0987d249-97b3-4c2f-bbf4-f4f0115788bb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memesdotcom-auth/domain/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/domain/auth.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -286,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611006751110</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="get token endpoint">
+      <created>1611008515239</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1611008515239</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -322,7 +327,8 @@
     <MESSAGE value="generate access token" />
     <MESSAGE value="redis white list" />
     <MESSAGE value="refresh token business logic" />
-    <option name="LAST_COMMIT_MESSAGE" value="refresh token business logic" />
+    <MESSAGE value="get token endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="get token endpoint" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -346,68 +352,68 @@
       <screen x="1440" y="-417" width="2560" height="1440" />
     </state>
     <state x="2566" y="211" key="Github.ShareDialog/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298787942" />
-    <state width="2518" height="514" key="GridCell.Tab.0.bottom" timestamp="1611008467087">
+    <state width="2518" height="416" key="GridCell.Tab.0.bottom" timestamp="1611009746808">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757026" />
-    <state width="2518" height="514" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008467087" />
+    <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611009746808" />
     <state width="2518" height="402" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752609" />
     <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609454854375" />
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806633" />
     <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261695" />
     <state width="2518" height="514" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007081" />
-    <state width="2518" height="514" key="GridCell.Tab.0.center" timestamp="1611008467084">
+    <state width="2518" height="416" key="GridCell.Tab.0.center" timestamp="1611009746806">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="514" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008467084" />
+    <state width="2518" height="416" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611009746806" />
     <state width="2518" height="402" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752602" />
     <state width="1398" height="240" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806631" />
     <state width="2518" height="415" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261691" />
     <state width="2518" height="514" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007076" />
-    <state width="2518" height="514" key="GridCell.Tab.0.left" timestamp="1611008467081">
+    <state width="2518" height="416" key="GridCell.Tab.0.left" timestamp="1611009746805">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757023" />
-    <state width="2518" height="514" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008467081" />
+    <state width="2518" height="416" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611009746805" />
     <state width="2518" height="402" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752598" />
     <state width="1398" height="240" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609454854373" />
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806630" />
     <state width="2518" height="415" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261689" />
     <state width="2518" height="514" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007074" />
-    <state width="2518" height="514" key="GridCell.Tab.0.right" timestamp="1611008467086">
+    <state width="2518" height="416" key="GridCell.Tab.0.right" timestamp="1611009746807">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="514" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008467086" />
+    <state width="2518" height="416" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611009746807" />
     <state width="2518" height="402" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752607" />
     <state width="1398" height="240" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806632" />
     <state width="2518" height="415" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261693" />
     <state width="2518" height="514" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007080" />
-    <state width="2518" height="514" key="GridCell.Tab.1.bottom" timestamp="1611008469438">
+    <state width="2518" height="514" key="GridCell.Tab.1.bottom" timestamp="1611008496326">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
-    <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008469438" />
+    <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008496326" />
     <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603873" />
     <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007091" />
-    <state width="2518" height="514" key="GridCell.Tab.1.center" timestamp="1611008469430">
+    <state width="2518" height="514" key="GridCell.Tab.1.center" timestamp="1611008496324">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
-    <state width="2518" height="514" key="GridCell.Tab.1.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008469430" />
+    <state width="2518" height="514" key="GridCell.Tab.1.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008496324" />
     <state width="2518" height="514" key="GridCell.Tab.1.center/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603870" />
     <state width="2518" height="514" key="GridCell.Tab.1.center/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007088" />
-    <state width="2518" height="514" key="GridCell.Tab.1.left" timestamp="1611008469424">
+    <state width="2518" height="514" key="GridCell.Tab.1.left" timestamp="1611008496323">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
-    <state width="2518" height="514" key="GridCell.Tab.1.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008469424" />
+    <state width="2518" height="514" key="GridCell.Tab.1.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008496323" />
     <state width="2518" height="514" key="GridCell.Tab.1.left/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603868" />
     <state width="2518" height="514" key="GridCell.Tab.1.left/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007082" />
-    <state width="2518" height="514" key="GridCell.Tab.1.right" timestamp="1611008469434">
+    <state width="2518" height="514" key="GridCell.Tab.1.right" timestamp="1611008496325">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
-    <state width="2518" height="514" key="GridCell.Tab.1.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008469434" />
+    <state width="2518" height="514" key="GridCell.Tab.1.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008496325" />
     <state width="2518" height="514" key="GridCell.Tab.1.right/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603871" />
     <state width="2518" height="514" key="GridCell.Tab.1.right/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007089" />
     <state width="243" height="539" key="HiddenNamespacesPopup" timestamp="1609454591412">
@@ -418,11 +424,11 @@
       <screen x="1440" y="-417" width="2560" height="1440" />
     </state>
     <state x="2229" y="-58" key="SettingsEditor/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298753764" />
-    <state x="2320" y="58" key="Vcs.Push.Dialog.v2" timestamp="1611006756124">
+    <state x="2320" y="58" key="Vcs.Push.Dialog.v2" timestamp="1611008519164">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2320" y="467" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715884385" />
-    <state x="2320" y="58" key="Vcs.Push.Dialog.v2/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611006756124" />
+    <state x="2320" y="58" key="Vcs.Push.Dialog.v2/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008519164" />
     <state width="1280" height="720" key="XDebugger.FullValuePopup" timestamp="1611005050481">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
@@ -435,11 +441,11 @@
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2428" y="50" width="584" height="522" key="find.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610998663768" />
-    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1611006754730">
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1611008517797">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2386" y="331" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715882647" />
-    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611006754730" />
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1611008517797" />
     <state x="2385" y="-86" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298775189" />
     <state x="532" y="207" width="670" height="423" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1609454544747" />
     <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988604085" />
@@ -448,28 +454,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go</url>
-          <line>115</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go</url>
-          <line>116</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go</url>
-          <line>170</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go</url>
-          <line>168</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/memesdotcom-auth/domain/auth.go</url>
-          <line>76</line>
+          <line>75</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>

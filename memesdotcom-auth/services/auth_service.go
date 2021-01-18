@@ -24,7 +24,7 @@ type authService struct {
 
 type AuthService interface {
 	LoginWithUserCredentials(userCredentials *domain.AccessTokenRequest) (*domain.AccessToken, _errors.RestError)
-	ValidateAndGenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError)
+	ValidateAccessToken(accessToken *domain.AccessToken) _errors.RestError
 	GenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError)
 }
 
@@ -52,8 +52,7 @@ func (as *authService) LoginWithUserCredentials(accessTokenRequest *domain.Acces
 	return accessToken, nil
 }
 
-func (as *authService) ValidateAndGenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError) {
-
+func (as *authService) ValidateAccessToken(accessToken *domain.AccessToken) _errors.RestError {
 	at, err := jwt.Parse(accessToken.AccessToken, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			log.Error(fmt.Sprintf("Unexpected signing method: %v", token.Header["alg"]))
@@ -64,7 +63,7 @@ func (as *authService) ValidateAndGenerateAccessToken(accessToken *domain.Access
 		return []byte(viper.GetString(constants.AccessTokenSecret)), nil
 	})
 	if err != nil || at == nil {
-		return nil, _errors.NewBadRequestError(accessTokenError)
+		return _errors.NewBadRequestError(accessTokenError)
 	}
 
 	if claims, ok := at.Claims.(jwt.MapClaims); ok && at.Valid {
@@ -76,23 +75,17 @@ func (as *authService) ValidateAndGenerateAccessToken(accessToken *domain.Access
 		accessToken.AccessTokenExpirationTime = expiration
 
 		if accessToken.IsExpired() || !as.isRefreshTokenAvailable(accessToken) {
-			return nil, _errors.NewNotFoundError("access token expired")
+			return _errors.NewNotFoundError("access token expired")
 		}
 
 	} else {
-		return nil, _errors.NewBadRequestError(accessTokenError)
+		return _errors.NewBadRequestError(accessTokenError)
 	}
 
-	newAccessToken, restErr := as.generateNewAccessToken(accessToken)
-	if restErr != nil {
-		return nil, restErr
-	}
-
-	return newAccessToken, nil
+	return nil
 }
 
 func (as *authService) GenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError) {
-
 	at, err := jwt.Parse(accessToken.RefreshToken, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			log.Error(fmt.Sprintf("Unexpected signing method: %v", token.Header["alg"]))
@@ -149,7 +142,10 @@ func (as *authService) createAccessToken(userID int64, clientID string) (*domain
 }
 
 func (as *authService) generateNewAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError) {
-	if err := as.redisClient.Delete(accessToken.RefreshToken); err != nil {
+
+	accessToken.UpdateExpirationTime()
+
+	if err := as.redisClient.Set(accessToken.RefreshToken, "1", accessToken.GetExpiration()); err != nil {
 		return nil, err
 	}
 
@@ -157,9 +153,6 @@ func (as *authService) generateNewAccessToken(accessToken *domain.AccessToken) (
 		return nil, err
 	}
 
-	if err := as.redisClient.Set(accessToken.RefreshToken, "1", accessToken.GetExpiration()); err != nil {
-		return nil, err
-	}
 	return accessToken, nil
 }
 
