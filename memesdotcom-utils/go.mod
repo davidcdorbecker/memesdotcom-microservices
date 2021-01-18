@@ -1,4 +1,4 @@
-module memesdotcom-utils
+module github.com/davidcdorbecker/memesdotcom-microservices/memesdotcom-utils
 
 go 1.15
 
