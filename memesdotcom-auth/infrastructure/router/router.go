@@ -7,15 +7,16 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 )
 
-func CreateRestRouter(usersHandler handlers.AuthHandler) *fiber.App {
+func CreateRestRouter(authHandler handlers.AuthHandler) *fiber.App {
 	app := fiber.New()
 
-	users := app.Group("/auth")
-	users.Use(logger.New())
+	auth := app.Group("/auth")
+	auth.Use(logger.New())
 	{
-		users.Get("/health", func(c *fiber.Ctx) error {
+		auth.Get("/health", func(c *fiber.Ctx) error {
 			return c.SendString("ok")
 		})
+		auth.Post("/login", authHandler.Login)
 	}
 
 	return app

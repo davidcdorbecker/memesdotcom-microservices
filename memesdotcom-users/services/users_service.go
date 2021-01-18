@@ -16,7 +16,7 @@ type service struct {
 
 type Service interface {
 	CreateUser(user domain.User) _errors.RestError
-	LoginUser(user *domain.UserCredentials) (*domain.User, _errors.RestError)
+	VerifyUserCredentials(user *domain.UserCredentials) (*domain.User, _errors.RestError)
 }
 
 func NewService(dbRepo db.DbRepository) Service {
@@ -36,7 +36,7 @@ func (s *service) CreateUser(user domain.User) _errors.RestError {
 	return nil
 }
 
-func (s *service) LoginUser(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
+func (s *service) VerifyUserCredentials(userCredentials *domain.UserCredentials) (*domain.User, _errors.RestError) {
 	userCredentials.Password = helpers.Encrypt(userCredentials.Password)
 
 	if user, err := s.db.FindByEmailAndPassword(userCredentials); err != nil {

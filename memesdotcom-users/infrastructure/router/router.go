@@ -17,7 +17,7 @@ func CreateRestRouter(usersHandler handlers.UsersHandler) *fiber.App {
 			return c.SendString("ok")
 		})
 		users.Post("/register", usersHandler.CreateUser)
-		users.Post("/login", usersHandler.LoginUser)
+		users.Post("/verify", usersHandler.VerifyUser)
 	}
 
 	return app

@@ -20,8 +20,8 @@ type DbRepository interface {
 }
 
 const (
-	queryRegisterUser           = "INSERT INTO users(first_name, last_name, email, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?);"
-	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, date_created FROM users WHERE email=? AND password=? AND status=?;"
+	queryRegisterUser           = "INSERT INTO users(first_name, last_name, email, username, date_created, status, password) VALUES(?, ?, ?, ?, ?, ?, ?);"
+	queryFindByEmailAndPassword = "SELECT id, first_name, last_name, email, username, date_created FROM users WHERE email=? AND password=? AND status=?;"
 )
 
 func NewDbRepository(mysqlClient *sql.DB) DbRepository {
@@ -36,7 +36,7 @@ func (db *dbRepository) CreateClient(user domain.User) _errors.RestError {
 	}
 	defer stmt.Close()
 
-	result, err := stmt.Exec(user.FirstName, user.LastName, user.Email, user.DateCreated, user.Status, user.Password)
+	result, err := stmt.Exec(user.FirstName, user.LastName, user.Email, user.Username, user.DateCreated, user.Status, user.Password)
 	if err != nil {
 		log.Error("error when trying to save user", err)
 		return _errors.NewInternalServerError("error when trying to save user")
@@ -62,7 +62,7 @@ func (db *dbRepository) FindByEmailAndPassword(userCredentials *domain.UserCrede
 
 	var user domain.User
 	result := stmt.QueryRow(userCredentials.Email, userCredentials.Password, constants.StatusActive)
-	if err := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.DateCreated); err != nil {
+	if err := result.Scan(&user.ID, &user.FirstName, &user.LastName, &user.Email, &user.Username, &user.DateCreated); err != nil {
 		log.Error("error when trying to search user", err)
 		return nil, _errors.NewInternalServerError("error when trying to search user")
 	}

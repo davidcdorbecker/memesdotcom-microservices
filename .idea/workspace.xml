@@ -23,15 +23,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0987d249-97b3-4c2f-bbf4-f4f0115788bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/app/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/utils/constants/constants.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/domain/users.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/repository/users_api/users_api.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/memesdotcom-auth/services/auth_service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/app/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/handlers/auth_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/infrastructure/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-auth/utils/constants/constants.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-auth/utils/constants/constants.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/app/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/app/app.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memesdotcom-users/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/db/migration/init_schema.up.sql" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/db/migration/init_schema.up.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/domain/users.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/domain/users.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/infrastructure/repository/db/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/infrastructure/repository/db/db.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memesdotcom-users/infrastructure/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/infrastructure/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memesdotcom-users/services/users_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/memesdotcom-users/services/users_service.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,14 +83,14 @@
       <recent name="$PROJECT_DIR$/src/handlers" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/memesdotcom-auth/domain" />
       <recent name="$PROJECT_DIR$/memedorcom-utils" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/utils" />
-      <recent name="$PROJECT_DIR$/src/infrastructure/router" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go (1)">
+  <component name="RunManager" selected="Go Build.go build memesdotcom-users">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="memesdotcom-microservices" />
       <working_directory value="$PROJECT_DIR$" />
@@ -91,19 +100,12 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build main.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build memesdotcom-auth" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="memesdotcom-microservices" />
       <working_directory value="$PROJECT_DIR$/memesdotcom-auth" />
-      <kind value="FILE" />
+      <kind value="PACKAGE" />
       <filePath value="$PROJECT_DIR$/memesdotcom-auth/main.go" />
-      <directory value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="memesdotcom-microservices" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/memedorcom-utils/main.go" />
+      <package value="memesdotcom-auth" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
@@ -111,7 +113,7 @@
       <module name="memesdotcom-microservices" />
       <working_directory value="$PROJECT_DIR$/memesdotcom-users" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/src/main.go" />
+      <filePath value="$PROJECT_DIR$/memesdotcom-users/main.go" />
       <package value="memesdotcom-users" />
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
@@ -126,25 +128,31 @@
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="mysql" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/src/Makefile" target="mysql" workingDirectory="" arguments="">
+    <configuration name="createdb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/memesdotcom-users/Makefile" target="createdb" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="dropdb" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/memesdotcom-users/Makefile" target="dropdb" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
     <configuration name="restore" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
-      <makefile filename="$PROJECT_DIR$/src/Makefile" target="restore" workingDirectory="" arguments="">
+      <makefile filename="$PROJECT_DIR$/memesdotcom-users/Makefile" target="restore" workingDirectory="" arguments="">
         <envs />
       </makefile>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build memesdotcom-users" />
-        <item itemvalue="Go Build.go build main.go" />
-        <item itemvalue="Makefile.mysql" />
+        <item itemvalue="Go Build.go build memesdotcom-auth" />
         <item itemvalue="Makefile.restore" />
+        <item itemvalue="Makefile.createdb" />
+        <item itemvalue="Makefile.dropdb" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610982271627</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="auth service">
+      <created>1610989032708</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1610989032708</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +301,8 @@
     <MESSAGE value="gomod config for utils" />
     <MESSAGE value="gomod updated" />
     <MESSAGE value="users repo updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="users repo updated" />
+    <MESSAGE value="auth service" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth service" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -300,73 +316,78 @@
       <screen x="1440" y="0" width="2560" height="1440" />
     </state>
     <state x="2131" y="551" key="#SQL_Dialects/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609707573720" />
-    <state x="2009" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1609708069480">
-      <screen x="1440" y="0" width="2560" height="1440" />
+    <state x="2009" y="-225" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610991491486">
+      <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2009" y="184" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609708069480" />
+    <state x="2009" y="-225" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610991491486" />
     <state x="320" y="115" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1609454655851" />
     <state x="2566" y="211" key="Github.ShareDialog" timestamp="1609298787942">
       <screen x="1440" y="-417" width="2560" height="1440" />
     </state>
     <state x="2566" y="211" key="Github.ShareDialog/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298787942" />
-    <state width="2518" height="415" key="GridCell.Tab.0.bottom" timestamp="1610988261695">
+    <state width="2518" height="514" key="GridCell.Tab.0.bottom" timestamp="1610992856219">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757026" />
-    <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103097" />
+    <state width="2518" height="514" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992856219" />
     <state width="2518" height="402" key="GridCell.Tab.0.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752609" />
     <state width="1398" height="240" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1609454854375" />
     <state width="2518" height="416" key="GridCell.Tab.0.bottom/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806633" />
     <state width="2518" height="415" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261695" />
     <state width="2518" height="514" key="GridCell.Tab.0.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007081" />
-    <state width="2518" height="415" key="GridCell.Tab.0.center" timestamp="1610988261691">
+    <state width="2518" height="514" key="GridCell.Tab.0.center" timestamp="1610992856215">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="415" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103093" />
+    <state width="2518" height="514" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992856215" />
     <state width="2518" height="402" key="GridCell.Tab.0.center/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752602" />
     <state width="1398" height="240" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.center/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806631" />
     <state width="2518" height="415" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261691" />
     <state width="2518" height="514" key="GridCell.Tab.0.center/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007076" />
-    <state width="2518" height="415" key="GridCell.Tab.0.left" timestamp="1610988261689">
+    <state width="2518" height="514" key="GridCell.Tab.0.left" timestamp="1610992856212">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757023" />
-    <state width="2518" height="415" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103092" />
+    <state width="2518" height="514" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992856212" />
     <state width="2518" height="402" key="GridCell.Tab.0.left/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752598" />
     <state width="1398" height="240" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1609454854373" />
     <state width="2518" height="416" key="GridCell.Tab.0.left/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806630" />
     <state width="2518" height="415" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261689" />
     <state width="2518" height="514" key="GridCell.Tab.0.left/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007074" />
-    <state width="2518" height="415" key="GridCell.Tab.0.right" timestamp="1610988261693">
+    <state width="2518" height="514" key="GridCell.Tab.0.right" timestamp="1610992856217">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715757025" />
-    <state width="2518" height="415" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988103096" />
+    <state width="2518" height="514" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992856217" />
     <state width="2518" height="402" key="GridCell.Tab.0.right/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609770752607" />
     <state width="1398" height="240" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1609454854374" />
     <state width="2518" height="416" key="GridCell.Tab.0.right/0.23.1440.877/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715806632" />
     <state width="2518" height="415" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988261693" />
     <state width="2518" height="514" key="GridCell.Tab.0.right/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007080" />
-    <state width="2518" height="514" key="GridCell.Tab.1.bottom" timestamp="1609345007091">
-      <screen x="1440" y="-417" width="2560" height="1440" />
+    <state width="2518" height="514" key="GridCell.Tab.1.bottom" timestamp="1610992858553">
+      <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
+    <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992858553" />
     <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603873" />
     <state width="2518" height="514" key="GridCell.Tab.1.bottom/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007091" />
-    <state width="2518" height="514" key="GridCell.Tab.1.center" timestamp="1609345007088">
-      <screen x="1440" y="-417" width="2560" height="1440" />
+    <state width="2518" height="514" key="GridCell.Tab.1.center" timestamp="1610992858548">
+      <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
+    <state width="2518" height="514" key="GridCell.Tab.1.center/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992858548" />
     <state width="2518" height="514" key="GridCell.Tab.1.center/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603870" />
     <state width="2518" height="514" key="GridCell.Tab.1.center/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007088" />
-    <state width="2518" height="514" key="GridCell.Tab.1.left" timestamp="1609345007082">
-      <screen x="1440" y="-417" width="2560" height="1440" />
+    <state width="2518" height="514" key="GridCell.Tab.1.left" timestamp="1610992858546">
+      <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
+    <state width="2518" height="514" key="GridCell.Tab.1.left/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992858546" />
     <state width="2518" height="514" key="GridCell.Tab.1.left/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603868" />
     <state width="2518" height="514" key="GridCell.Tab.1.left/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007082" />
-    <state width="2518" height="514" key="GridCell.Tab.1.right" timestamp="1609345007089">
-      <screen x="1440" y="-417" width="2560" height="1440" />
+    <state width="2518" height="514" key="GridCell.Tab.1.right" timestamp="1610992858550">
+      <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
+    <state width="2518" height="514" key="GridCell.Tab.1.right/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610992858550" />
     <state width="2518" height="514" key="GridCell.Tab.1.right/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609290603871" />
     <state width="2518" height="514" key="GridCell.Tab.1.right/0.23.1440.877/4000.-75.1920.1057/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609345007089" />
     <state width="243" height="539" key="HiddenNamespacesPopup" timestamp="1609454591412">
@@ -377,22 +398,38 @@
       <screen x="1440" y="-417" width="2560" height="1440" />
     </state>
     <state x="2229" y="-58" key="SettingsEditor/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298753764" />
-    <state x="2320" y="58" key="Vcs.Push.Dialog.v2" timestamp="1610981749537">
+    <state x="2320" y="58" key="Vcs.Push.Dialog.v2" timestamp="1610989037605">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2320" y="467" key="Vcs.Push.Dialog.v2/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715884385" />
-    <state x="2320" y="58" key="Vcs.Push.Dialog.v2/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610981749537" />
+    <state x="2320" y="58" key="Vcs.Push.Dialog.v2/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610989037605" />
     <state x="2617" y="614" width="318" height="249" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1609699813498">
       <screen x="1440" y="0" width="2560" height="1440" />
     </state>
     <state x="2617" y="614" width="318" height="249" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609699813498" />
-    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1610988604085">
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup" timestamp="1610989035788">
       <screen x="1440" y="-409" width="2560" height="1440" />
     </state>
     <state x="2386" y="331" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/1440.0.2560.1440@1440.0.2560.1440" timestamp="1609715882647" />
-    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610981744065" />
+    <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610989035788" />
     <state x="2385" y="-86" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/4000.-98.1920.1080/1440.-417.2560.1440@1440.-417.2560.1440" timestamp="1609298775189" />
     <state x="532" y="207" width="670" height="423" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1609454544747" />
     <state x="2386" y="-78" width="1192" height="677" key="search.everywhere.popup/0.23.1440.877/4000.-75.1920.1057/1440.-409.2560.1440@1440.-409.2560.1440" timestamp="1610988604085" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go</url>
+          <line>57</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/memesdotcom-users/handlers/users_handler.go</url>
+          <line>58</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -5,6 +5,7 @@ create table users
     first_name   varchar(45)                        null,
     last_name    varchar(45)                        null,
     email        varchar(45)                        not null,
+    username        varchar(45)                        not null,
     date_created datetime default CURRENT_TIMESTAMP null,
     status       varchar(45)                        null,
     password     varchar(45)                        not null,

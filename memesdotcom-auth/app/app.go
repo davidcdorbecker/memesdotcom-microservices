@@ -1,8 +1,11 @@
 package app
 
 import (
+	"github.com/go-resty/resty/v2"
 	"memesdotcom-auth/handlers"
+	"memesdotcom-auth/infrastructure/repository/users_api"
 	"memesdotcom-auth/infrastructure/router"
+	"memesdotcom-auth/services"
 	"memesdotcom-auth/utils/constants"
 
 	log "github.com/sirupsen/logrus"
@@ -23,7 +26,7 @@ func StartApp() {
 
 	log.Printf("config keys: %s\n", viper.AllKeys())
 
-	handler := handlers.NewAuthHandler()
+	handler := handlers.NewAuthHandler(services.NewAuthService(users_api.NewUsersAPI(resty.New())))
 
 	//getting API
 	app := router.CreateRestRouter(handler)

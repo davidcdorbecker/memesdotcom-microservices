@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"github.com/go-sql-driver/mysql"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 	"memesdotcom-users/handlers"
@@ -55,6 +56,10 @@ func StartApp() {
 
 	//getting API
 	app := router.CreateRestRouter(handler)
+	app.Use(cors.New(cors.Config{
+		AllowOrigins: "*",
+		AllowHeaders: "Origin, Content-Type, Accept",
+	}))
 	if err := app.Listen(viper.GetString(constants.ApplicationPort)); err != nil {
 		panic(err)
 	}
