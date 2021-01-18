@@ -25,6 +25,7 @@ type authService struct {
 type AuthService interface {
 	LoginWithUserCredentials(userCredentials *domain.AccessTokenRequest) (*domain.AccessToken, _errors.RestError)
 	ValidateAndGenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError)
+	GenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError)
 }
 
 func NewAuthService(usersAPI users_api.UsersAPI, redisClient redis.Redis) AuthService {
@@ -75,6 +76,44 @@ func (as *authService) ValidateAndGenerateAccessToken(accessToken *domain.Access
 		accessToken.AccessTokenExpirationTime = expiration
 
 		if accessToken.IsExpired() || !as.isRefreshTokenAvailable(accessToken) {
+			return nil, _errors.NewNotFoundError("access token expired")
+		}
+
+	} else {
+		return nil, _errors.NewBadRequestError(accessTokenError)
+	}
+
+	newAccessToken, restErr := as.generateNewAccessToken(accessToken)
+	if restErr != nil {
+		return nil, restErr
+	}
+
+	return newAccessToken, nil
+}
+
+func (as *authService) GenerateAccessToken(accessToken *domain.AccessToken) (*domain.AccessToken, _errors.RestError) {
+
+	at, err := jwt.Parse(accessToken.RefreshToken, func(token *jwt.Token) (interface{}, error) {
+		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
+			log.Error(fmt.Sprintf("Unexpected signing method: %v", token.Header["alg"]))
+			return nil, _errors.NewBadRequestError(accessTokenError)
+		}
+
+		// hmacSampleSecret is a []byte containing your secret, e.g. []byte("my_secret_key")
+		return []byte(viper.GetString(constants.RefreshTokenSecret)), nil
+	})
+	if err != nil || at == nil {
+		return nil, _errors.NewBadRequestError(accessTokenError)
+	}
+
+	if claims, ok := at.Claims.(jwt.MapClaims); ok && at.Valid {
+		userID, _ := strconv.ParseInt(claims["userID"].(string), 10, 64)
+		accessToken.UserID = userID
+		accessToken.ClientID = claims["clientID"].(string)
+		expiration, _ := strconv.ParseInt(claims["exp"].(string), 10, 64)
+		accessToken.RefreshTokenExpirationTime = expiration
+
+		if !as.isRefreshTokenAvailable(accessToken) || accessToken.IsRefreshTokenExpired() {
 			return nil, _errors.NewNotFoundError("access token expired")
 		}
 
