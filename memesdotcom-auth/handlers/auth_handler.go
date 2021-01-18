@@ -3,6 +3,7 @@ package handlers
 import (
 	"memesdotcom-auth/services"
 	"net/http"
+	"strings"
 
 	"memesdotcom-auth/domain"
 
@@ -22,6 +23,7 @@ type authHandler struct {
 
 type AuthHandler interface {
 	CreateAccessToken(c *fiber.Ctx) error
+	ValidateAccessToken(c *fiber.Ctx) error
 }
 
 func NewAuthHandler(authService services.AuthService) AuthHandler {
@@ -47,6 +49,26 @@ func (ah *authHandler) CreateAccessToken(c *fiber.Ctx) error {
 
 	restError := _errors.NewBadRequestError("method not supported")
 	return c.Status(restError.Code()).JSON(restError.Message())
+}
+
+func (ah *authHandler) ValidateAccessToken(c *fiber.Ctx) error {
+	var accessToken domain.AccessToken
+
+	reqToken := c.Get(fiber.HeaderAuthorization)
+	splitToken := strings.Split(reqToken, "Bearer ")
+	reqToken = splitToken[1]
+	if reqToken == "" {
+		err := _errors.NewBadRequestError("No authorization header provided")
+		return c.Status(err.Code()).JSON(err)
+	}
+
+	accessToken.AccessToken = reqToken
+
+	at, err := ah.authService.ValidateAndGenerateAccessToken(&accessToken)
+	if err != nil {
+		return c.Status(err.Code()).JSON(err)
+	}
+	return c.Status(http.StatusOK).JSON(at)
 }
 
 func getLoginMethod(accessTokenRequest *domain.AccessTokenRequest) string {

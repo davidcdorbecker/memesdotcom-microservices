@@ -17,6 +17,7 @@ func CreateRestRouter(authHandler handlers.AuthHandler) *fiber.App {
 			return c.SendString("ok")
 		})
 		auth.Post("/login", authHandler.CreateAccessToken)
+		auth.Get("/verify", authHandler.ValidateAccessToken)
 	}
 
 	return app

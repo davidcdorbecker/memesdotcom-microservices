@@ -5,6 +5,7 @@ import (
 	"github.com/form3tech-oss/jwt-go"
 	"github.com/spf13/viper"
 	"memesdotcom-auth/utils/constants"
+	"strconv"
 	"time"
 )
 
@@ -32,26 +33,29 @@ type AccessToken struct {
 }
 
 func (at *AccessToken) Generate() _errors.RestError {
-	accessTokenExpirationTime := time.Now().Add(time.Minute * viper.GetDuration(constants.AccessTokenExpirationTime)).UnixNano()
+	accessTokenExpirationTime := time.Now().Add(time.Second * viper.GetDuration(constants.AccessTokenExpirationTime)).UnixNano()
 	refreshTokenExpirationTime := time.Now().Add(time.Hour * viper.GetDuration(constants.RefreshTokenExpirationTime)).UnixNano()
 
-	accessToken := jwt.New(jwt.SigningMethodHS256)
-	accessTokenClaims := accessToken.Claims.(jwt.MapClaims)
-	accessTokenClaims["userID"] = at.UserID
-	accessTokenClaims["clientID"] = at.ClientID
-	accessTokenClaims["exp"] = accessTokenExpirationTime
-
-	aToken, atErr := accessToken.SignedString([]byte(viper.GetString(constants.AccessTokenSecret)))
-	if atErr != nil {
-		return _errors.NewInternalServerError("access token generation error")
-	}
-
 	refreshToken := jwt.New(jwt.SigningMethodHS256)
-	refreshTokenClaims := accessToken.Claims.(jwt.MapClaims)
+	refreshTokenClaims := refreshToken.Claims.(jwt.MapClaims)
 	refreshTokenClaims["exp"] = refreshTokenExpirationTime
 	rToken, rtErr := refreshToken.SignedString([]byte(viper.GetString(constants.RefreshTokenSecret)))
 	if rtErr != nil {
 		return _errors.NewInternalServerError("refresh token generation error")
+	}
+
+	accessToken := jwt.New(jwt.SigningMethodHS256)
+	accessTokenClaims := accessToken.Claims.(jwt.MapClaims)
+	uid := strconv.FormatInt(at.UserID, 10)
+	accessTokenClaims["userID"] = uid
+	accessTokenClaims["clientID"] = at.ClientID
+	exp := strconv.FormatInt(accessTokenExpirationTime, 10)
+	accessTokenClaims["exp"] = exp
+	accessTokenClaims["refreshToken"] = rToken
+
+	aToken, atErr := accessToken.SignedString([]byte(viper.GetString(constants.AccessTokenSecret)))
+	if atErr != nil {
+		return _errors.NewInternalServerError("access token generation error")
 	}
 
 	at.AccessToken = aToken
@@ -60,4 +64,12 @@ func (at *AccessToken) Generate() _errors.RestError {
 	at.RefreshTokenExpirationTime = refreshTokenExpirationTime
 
 	return nil
+}
+
+func (at *AccessToken) IsExpired() bool {
+	return at.AccessTokenExpirationTime-time.Now().UnixNano() < 0
+}
+
+func (at *AccessToken) GetExpiration() time.Duration {
+	return time.Duration(at.RefreshTokenExpirationTime - time.Now().UnixNano())
 }
