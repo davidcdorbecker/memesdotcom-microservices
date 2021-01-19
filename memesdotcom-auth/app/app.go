@@ -29,8 +29,9 @@ func StartApp() {
 
 	log.Printf("config keys: %s\n", viper.AllKeys())
 
+	//TODO: take this from config yaml
 	redisClient := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
+		Addr:     "redis:6379",
 		Password: "", // no password set
 		DB:       0,  // use default DB
 	})

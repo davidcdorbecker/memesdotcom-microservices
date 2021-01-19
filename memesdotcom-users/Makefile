@@ -9,4 +9,4 @@ restore:
 backup:
 	docker exec -i mysql /usr/bin/mysqldump -uroot -ppass users_db > backup.sql
 
-.PHONY: mysql createdb dropdb
+.PHONY: mysql createdb dropdb restore backup

@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+  redis:
+    image: redis
+  auth:
+    build:
+      context: ./memesdotcom-auth
+    ports:
+      - "8086:8086"
+  users:
+    build:
+      context: ./memesdotcom-users
+    ports:
+      - "8085:8085"
+volumes:
+  mysqldata:

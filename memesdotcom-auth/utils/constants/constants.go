@@ -7,7 +7,7 @@ const (
 	RefreshTokenExpirationTime = "refreshToken.expirationTime"
 	RefreshTokenSecret         = "refreshToken.secret"
 
-	VerifyUserEndpoint = "http://localhost:8085/users/verify"
+	VerifyUserEndpoint = "http://host.docker.internal:8085/users/verify"
 
 	AccessTokenError = "access token error"
 )

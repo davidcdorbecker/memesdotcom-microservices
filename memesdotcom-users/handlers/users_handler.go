@@ -66,9 +66,9 @@ func (uh *usersHandler) VerifyUser(c *fiber.Ctx) error {
 	}
 
 	if user, err := uh.service.VerifyUserCredentials(&userCrentials); err != nil {
-		return c.JSON(err)
+		return c.Status(err.Code()).JSON(err)
 	} else {
-		return c.JSON(user)
+		return c.Status(http.StatusOK).JSON(user)
 	}
 
 }
