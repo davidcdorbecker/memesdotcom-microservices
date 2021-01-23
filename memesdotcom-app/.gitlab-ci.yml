@@ -1,0 +1,29 @@
+build site:
+  only:
+    - master
+  image: node:11
+  stage: build
+  script:
+    - npm install --progress=false
+    - npm run build
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist
+
+deploy-production:
+  only:
+    - master
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk update && apk add openssh-client bash rsync
+  script:
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - echo -e "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod -R 600 ~/.ssh
+    - ssh-add ~/.ssh/id_rsa
+    - ssh-keyscan $PROD_DOMAIN >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - rsync -vv -rz --checksum --delete dist/ gitlab@$PROD_DOMAIN:$PROD_DIR

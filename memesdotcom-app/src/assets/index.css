@@ -1,0 +1,21 @@
+/*! @import */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+hr[data-divider] {
+    height: 1px;
+    position: relative;
+    overflow: visible;
+    background: #cecece;
+    text-align: center;
+    border: none;
+}
+
+hr[data-divider]:after {
+    content: attr(data-divider);
+    top: -10px;
+    position: relative;
+    background: #1e272e;
+    padding: 0 5px;
+}
