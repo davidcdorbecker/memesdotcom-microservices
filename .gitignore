@@ -1,5 +1,4 @@
 # IDE settings
-../.idea/
-/.idea/
+.idea
 .vscode/
 *.idea
